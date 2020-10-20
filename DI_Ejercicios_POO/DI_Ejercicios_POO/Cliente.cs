@@ -7,6 +7,7 @@ namespace DI_Ejercicios_POO
 
     /// <summary>
     /// Clase Cliente para la resolución del ejercicio 3
+    /// Serán atributos de otra clase (Banco.cs)
     /// </summary>
     class Cliente
     {

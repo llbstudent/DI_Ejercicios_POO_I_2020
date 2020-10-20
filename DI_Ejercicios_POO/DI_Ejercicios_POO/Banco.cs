@@ -4,6 +4,10 @@ using System.Text;
 
 namespace DI_Ejercicios_POO
 {
+    /// <summary>
+    /// Clase Banco, intanciaremos un objeto y lo probaremos en 'Program'
+    /// Contendra 3 objetos de tipo cliente
+    /// </summary>
     class Banco
     {
         //Atributos

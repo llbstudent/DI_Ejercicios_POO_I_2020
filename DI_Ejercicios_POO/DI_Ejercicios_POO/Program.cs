@@ -2,6 +2,9 @@
 
 namespace DI_Ejercicios_POO
 {
+    /// <summary>
+    /// Programa principal, aquí realizaremos todos los ejercicios y probaremos a través de un menú interactivo
+    /// </summary>
     class Program
     {
         static void Main(string[] args)

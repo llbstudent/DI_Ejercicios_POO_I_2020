@@ -4,6 +4,11 @@ using System.Text;
 
 namespace DI_Ejercicios_POO
 {
+    /// <summary>
+    /// Clase persona
+    /// Instanciaremos 2 de ellas en 'program'
+    /// Tendrán el único método de saludar
+    /// </summary>
     class Persona
     {
         //Atributo
