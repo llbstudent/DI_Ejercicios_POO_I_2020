@@ -35,16 +35,41 @@ namespace DI_Ejercicios_POO
             set { this.dinero = value; }
         }
 
+        //Métodos
+        /// <summary>
+        /// Nos deposita más dinero en nuestra cuenta
+        /// </summary>
+        /// <param name="ingreso"></param>
+        public void depositar(Double ingreso)
+        {
+            this.dinero += ingreso;
+        }
 
-        /*
-         
-           nombre
-        dinero
-    métodos
-        constructor
-        Depositar
-        Extraer
-        Retornardiner
-         */
+        /// <summary>
+        /// Método que nos extrae dienro de nuestra cuenta
+        /// Si la cantidad a retirar es mayor que lo que tenemos depositado o
+        /// no hay dinero suficiente nos aparecerá un error
+        /// </summary>
+        /// <param name="subs"></param>
+        public void extraer(Double subs)
+        {
+            if(this.dinero <= 0 || this.dinero < subs)
+            {
+                Console.WriteLine("No se disponene de suficientes fondos para extraer la cantidad deseada");
+            }
+            else
+            {
+                this.dinero -= subs;
+            }
+        }
+
+        /// <summary>
+        /// Nos devuelve el dinero del que dispone el cliente actualmente
+        /// </summary>
+        /// <returns></returns>
+        public Double retornaDinero()
+        {
+            return this.dinero;
+        }
     }
 }

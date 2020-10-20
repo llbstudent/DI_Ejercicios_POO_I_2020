@@ -6,19 +6,21 @@ namespace DI_Ejercicios_POO
     {
         static void Main(string[] args)
         {
+            //Atributo que nos permitirá tener el menu activado
             Boolean menuActivado = true;
             do
             {
-                Console.WriteLine("\n*********************************************************************************************" +
+                Console.WriteLine("\n************************************.:. EJERCICIOS .:.**************************************************" +
                     "\n[1]-EJ1: Desarrollar un programa que tenga una clase que represente un Cuadrado" +
                     "\n[2]-EJ2: Implementar la clase operaciones" +
                     "\n[3]-EJ3: Clase Banco" +
                     "\n[4]-EJ4: Clase Persona" +
                     "\n[5]-SALIR" +
-                    "\n*********************************************************************************************");
+                    "\n**********************************************************************************************************");
 
                 Console.Write("Inserte una de las opciones (inserte un número entero): ");
                 int opcion = Convert.ToInt32(Console.ReadLine());
+                Console.Clear(); //Limpiamos la consola
 
                 switch (opcion)
                 {
@@ -28,7 +30,7 @@ namespace DI_Ejercicios_POO
                         Double ladoCuadrado = Convert.ToDouble(Console.ReadLine());
                         Cuadrado c1 = new Cuadrado(ladoCuadrado);
 
-                        Console.WriteLine("Solución:");
+                        Console.WriteLine("\nSolución:");
                         Console.WriteLine("El perímetro es: " + c1.calcularPerimetro_y_Superficie());
                         Console.WriteLine("La superficie es: " + c1.calcularPerimetro_y_Superficie());
                         break;
@@ -83,14 +85,59 @@ namespace DI_Ejercicios_POO
 
                     case 3:
                         Console.WriteLine(".:. Ejercicio 3 .:.");
+                        //Nos creamos una serie de clientes por defecto
+                        Cliente cli1 = new Cliente("Ana", 15203.26);
+                        Cliente cli2 = new Cliente("Pedro", 12034.46);
+                        Cliente cli3 = new Cliente("Marcial", 3152.58);
 
-                        Console.WriteLine("Solución:");
+                        //Nos creamos nuestro Banco
+                        Banco miBanco = new Banco(cli1, cli2, cli3);
+                        //Variable que nos ayudará con nuestras gestiones de la clase Banco
+                        Boolean salirBanco = false;
+
+                        //Bucle que nos ayudará a mejorar la eficiencia para cuando ejecutemos las opciones de la clase banco
+                        do
+                        {
+                            Console.WriteLine("***********************" +
+                            "\n[1]-Operar" +
+                            "\n[2]-Ver ingresos totales" +
+                            "\n[3]-SALIR" +
+                            "\n***********************");
+
+                            Console.Write("Seleccione opcion (inserte un entero): ");
+                            int opBanco = Convert.ToInt32(Console.ReadLine());
+
+                            switch (opBanco)
+                            {
+                                case 1:
+                                    miBanco.operar();
+                                    break;
+
+                                case 2:
+                                    miBanco.verDepositosTotales();
+                                    break;
+
+                                case 3:
+                                    salirBanco = true;
+                                    break;
+                            }
+                        } while (!salirBanco);                        
                         break;
 
                     case 4:
                         Console.WriteLine(".:. Ejercicio 4 .:.");
+                        Console.Write("¿Cómo se llama la primera persona? ");
+                        String nombre1 = Console.ReadLine();
+                        Console.Write("¿Cómo se llama la segunda persona? ");
+                        String nombre2 = Console.ReadLine();
+
+                        //Nos creamos a las personas
+                        Persona per1 = new Persona(nombre1);
+                        Persona per2 = new Persona(nombre2);
 
                         Console.WriteLine("Solución:");
+                        per1.saludar();
+                        per2.saludar();
                         break;
 
                     case 5:
@@ -102,9 +149,8 @@ namespace DI_Ejercicios_POO
                         Console.WriteLine("Opción no disponible");
                         break;
 
-                }
-
-            } while (menuActivado);
+                }//Fin switch opción (Menú principal)
+            } while (menuActivado); //Fin do-While (Ejecución en bucle del menú principal)
             Console.ReadLine();
         }
     }
